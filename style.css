@@ -1,0 +1,928 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: url('gilroy-bold/Gilroy-Bold.ttf') format('truetype');
+    font-weight: 450;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('gilroy-bold/Gilroy-Medium.ttf') format('truetype');
+    font-weight: 400;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: #fefefe;
+    color: #1a1a1a;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 145.09px;
+    background-color: white;
+    width: fit-content;
+    height: auto;
+    gap: 140px;
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: #0052cc;
+        height: 40px;
+        width: 155px;
+    }
+
+    .logo-img {
+        gap: 8px;
+        padding: 8px;
+        height: 40px;
+        width: 155px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 32px;
+
+        a {
+            text-decoration: none;
+            color: #141414;
+            font-size: 1.125rem;
+            transition: color 0.2s;
+            width: 72px;
+            height: 22px;
+            font-weight: 400;
+            line-height: 100%;
+        }
+    }
+
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .btn-login {
+            text-decoration: none;
+            color: #0065fe;
+            font-weight: 400;
+        }
+
+        .btn-signup {
+            text-decoration: none;
+            background-color: #0065fe;
+            padding: 12px 24px;
+            border-radius: 100px;
+            color: white;
+        }
+    }
+}
+
+#active {
+    color: #0065fe;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    width: 69px;
+    height: 22px;
+}
+
+.hero-section {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px 40px 20px; 
+    gap: 8px;
+
+    .hero-content {
+        max-width: 750px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            font-weight: 700;
+            font-size: 48px;
+            letter-spacing: 0%;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .highlight {
+            position: relative;
+            color: #005ae2;
+            background-image: url('Scissor/Vector\ 3.svg');
+            background-repeat: no-repeat;
+            background-position: bottom left;
+            background-size: 100% 10px;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            font-weight: 400;
+            margin-bottom: 48px;
+            padding: 0 20px;
+        }
+    }
+
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 32px;
+        width: fit-content;
+
+        .btn-primary {
+            text-decoration: none;
+            background-color: #0052cc;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 100px;
+            font-weight: 600;
+        }
+
+        .btn-secondary {
+            text-decoration: none;
+            color: #0052cc;
+            background-color: transparent;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+    }
+}
+
+.hero-card-wrapper {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    isolation: isolate; 
+
+    .hero-card {
+        position: relative;              
+        background: linear-gradient(90deg, #e8eef8, #fdfcf8);
+        border: 0.5px solid #005ae2;
+        border-radius: 24px;
+        padding: 40px 60px;
+        width: 100%;
+        max-width: 650px;
+        box-shadow: 0 15px 35px rgba(0, 82, 204, 0.08);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 12px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -20px;       
+            background: url('triangle.svg') no-repeat center / 100% 100%;
+            z-index: -1;      
+        }
+    }
+}
+
+.hero-blob {
+    position: absolute;
+    z-index: -1;                    
+    top: -15px;                     
+    left: 1%;                      
+    width: 280px;                   
+    height: calc(100% + 40px);      
+    pointer-events: none;
+}
+
+.link-graphic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+    align-self: flex-start;
+
+    .chain-img {
+        max-width: 100%;
+        height: auto;
+        width: 280px;
+    }
+}
+
+.card-text {
+    text-align: center;
+}
+
+.hero-surface-container {
+    width: 100%;
+    height: 93px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    position: relative;
+    z-index: 3;
+    margin-bottom: -10px;
+
+    .hero-surface-img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.stats-section {
+    background-color: #f9fbfd;
+    padding: 40px 140px 60px 140px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+
+    .stats-header {
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #111827;
+        }
+
+        .stat-highlight {
+            color: #0052cc;
+        }
+    }
+
+    .stats-grid {
+        display: flex;
+        gap: 48px;
+
+        .stat-item {
+            h3 {
+                font-size: 2rem;
+                font-weight: 800;
+                color: #111827;
+                margin-bottom: 6px;
+            }
+
+            p {
+                font-size: 0.9rem;
+                color: #4b5563;
+                line-height: 1.4;
+                max-width: 140px; 
+            }
+        }
+    }
+}
+
+.features-section {
+    background-color: #f8fafc; 
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+
+    .features-intro {
+        flex: 1.2;
+        max-width: 500px;
+
+        h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+    }
+
+    .features-grid {
+        flex: 1.5;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 40px;
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+
+            .feature-icon {
+                width: 48px;
+                height: 48px;
+                background-color: #e0e7ff;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                margin-bottom: 16px;
+
+                img {
+                    width: 22px;
+                    height: 22px;
+                    object-fit: contain;
+                }
+            }
+
+            h3 {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: #111827;
+                margin-bottom: 6px;
+            }
+
+            p {
+                font-size: 0.9rem;
+                color: #4b5563;
+                line-height: 1.5;
+            }
+        }
+    }
+}
+
+.title-line-img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-highlight {
+    color: #0052cc;
+}
+
+.pricing-section {
+    background-color: #ffffff;
+    padding: 100px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .pricing-header {
+        max-width: 600px;
+        margin-bottom: 100px; 
+
+        h2 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: #4b5563;
+            line-height: 1.5;
+        }
+    }
+
+    .pricing-section-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 1100px;
+        margin-bottom: 60px; 
+
+        .pricing-container-box {
+            display: grid;
+            grid-template-columns: 1fr 380px 1fr; 
+            align-items: center;
+            gap: 40px;                            
+            background: #ffffff;
+            border: 1.5px solid #e0e7ff;
+            border-radius: 24px;
+            padding: 60px 40px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 82, 204, 0.04);
+
+            .pricing-card {
+                flex: 1;
+                background: transparent;
+                border: none;
+                padding: 0;
+                box-shadow: none;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+
+                .plan-name {
+                    font-size: 1.1rem;
+                    font-weight: 400;
+                    color: #111827;
+                    line-height: 32px;
+                }
+
+                .plan-price {
+                    font-size: 2.5rem;
+                    font-weight: 800;
+                    color: #111827;
+
+                    span {
+                        font-size: 1rem;
+                        font-weight: 400;
+                    }
+
+                    .amount {
+                        position: relative;
+                        top: 8px;
+                        font-size: 2.5rem;
+                    }
+
+                    .per {
+                        font-size: 2rem;
+                        font-weight: 400;
+                        line-height: 48px;
+                        position: relative;
+                        top: 8px;
+                    }
+
+                    .slash {
+                        display: inline-block;
+                        font-size: 2.2rem;      
+                        font-weight: 300;       
+                        line-height: 1;
+                        margin: 0 2px;
+                        vertical-align: middle;
+                        transform: scaleY(1.2); 
+                    }
+                }
+
+                .plan-desc {
+                    font-size: 0.9rem;
+                    color: #141414;
+                }
+
+                .plan-features {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 14px;
+
+                    li {
+                        font-size: 0.9rem;
+                        color: #374151;
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        margin-bottom: 15px;
+
+                        &::before {
+                            content: "";
+                            display: inline-block;
+                            width: 18px;
+                            height: 18px;
+                            background-image: url('Scissor/check-circle\ \(1\).png'); 
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: contain;
+                            flex-shrink: 0;
+                        }
+                    }
+                }
+
+                &.professional-card {
+                    background: rgba(30, 52, 72, 1);
+                    color: #ffffff;
+                    border: none;
+                    border-radius: 20px;
+                    padding: 50px 35px;
+                    box-shadow: 0 25px 50px rgba(11, 29, 58, 0.35);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    gap: 20px;
+                    text-align: left;
+                    margin: -105px 0;
+                    align-self: stretch;
+                    position: relative;
+                    z-index: 5;
+
+                    .plan-name {
+                        color: #ffffff;
+                    }
+
+                    .plan-price {
+                        color: #ffffff;
+                    }
+
+                    .plan-desc {
+                        color: #ffffff;
+                    }
+
+                    .plan-features li {
+                        color: #e2e8f0;
+
+                        &::before {
+                            background-image: url('Scissor/check-circle.png'); 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pricing-highlight {
+    color: #0052cc;
+}
+
+.pricing-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+
+    .btn-outline {
+        background: transparent;
+        border: 1px solid #0065fe;
+        color: #0065fe;
+        padding: 12px 24px;
+        border-radius: 100px;
+        font-weight: 400;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: rgba(0, 82, 204, 0.05);
+        }
+    }
+
+    .btn-solid {
+        background: #0065fe;
+        border: none;
+        color: #ffffff;
+        padding: 12px 24px;
+        border-radius: 100px;
+        font-weight: 400;
+        cursor: pointer;
+        transition: background 0.2s ease;
+
+        &:hover {
+            background: #0041a3;
+        }
+    }
+}
+
+.trim-section {
+    position: relative;
+    background-color: #0b1d3a; 
+    background-image: url('Scissor/Desktop\ -\ 11.svg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    .trim-card-wrapper {
+        width: 530px;
+        height: 355px;
+        z-index: 2;
+
+        .trim-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 50px 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+
+            .trim-form {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .form-group {
+                    width: 100%;
+                    position: relative;
+
+                    .form-input {
+                        width: 100%;
+                        padding: 16px 20px;
+                        border: 1.5px solid #0052cc;
+                        border-radius: 12px;
+                        font-size: 0.95rem;
+                        color: #111827;
+                        background: #ffffff;
+                        outline: none;
+                        transition: all 0.2s ease;
+
+                        &::placeholder {
+                            color: #9ca3af;
+                        }
+
+                        &:focus {
+                            border-color: #0041a3;
+                            box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+                        }
+                    }
+                }
+
+                .form-row {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 20px;
+                }
+
+                .select-group {
+                    position: relative;
+
+                    .form-select {
+                        appearance: none;
+                        -webkit-appearance: none;
+                        cursor: pointer;
+                        color: #0052cc; 
+                        font-weight: 500;
+                    }
+
+                    .dropdown-arrow {
+                        position: absolute;
+                        right: 20px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        color: #0052cc;
+                        pointer-events: none;
+                        font-size: 0.75rem;
+                    }
+                }
+
+                .trim-btn {
+                    background-color: #0052cc;
+                    color: #ffffff;
+                    border: none;
+                    border-radius: 30px;
+                    padding: 16px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    transition: background-color 0.2s ease;
+                    margin-top: 10px;
+
+                    &:hover {
+                        background-color: #0041a3;
+                    }
+                }
+
+                .trim-disclaimer {
+                    font-size: 0.8rem;
+                    color: #4991ff;
+                    line-height: 1.4;
+                    margin-top: 5px;
+                    font-weight: 400;
+                    width: 373px;
+                    height: 40px;
+                    vertical-align: middle;
+
+                    .terms {
+                        color: #337cea;
+                        text-decoration: none;
+                        font-weight: 500;
+                        vertical-align: middle;
+                    }
+
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.faq-section {
+    background-color: #ffffff;
+    background-image: url('Scissor/FAQs.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 120px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .faq-header {
+        text-align: center;
+        margin-bottom: 60px;
+
+        h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #111827;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+
+            .title-line-img {
+                height: 38px;
+                width: auto;
+                object-fit: contain;
+            }
+        }
+    }
+
+    .faq-container {
+        width: 100%;
+        max-width: 850px;
+        display: flex;
+        flex-direction: column;
+
+        .faq-item {
+            border-bottom: 1.5px solid #e5e7eb;
+            padding: 24px 0;
+
+            .faq-question {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 1.05rem;
+                font-weight: 600;
+                color: #111827;
+                cursor: pointer;
+
+                .faq-icon {
+                    font-size: 1.3rem;
+                    font-weight: 400;
+                    color: #111827;
+                    user-select: none;
+                }
+            }
+
+            .faq-answer {
+                margin-top: 14px;
+                font-size: 0.95rem;
+                color: #4b5563;
+                line-height: 1.6;
+                display: none; 
+            }
+
+            &.active .faq-answer {
+                display: block; 
+            }
+        }
+    }
+}
+
+.cta-banner-section {
+    position: relative;
+    background-color: #0b1d3a; 
+    background-image: url('Scissor/Desktop\ -\ 11.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+
+    .cta-content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+
+        h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .cta-btn {
+            padding: 14px 40px;
+            border-radius: 30px;
+            font-size: 1rem;
+        }
+    }
+}
+
+.footer-section {
+    background-color: #ffffff;
+    background-image: url('Scissor/FAQs.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 80px 80px 40px 80px;
+    position: relative;
+    border-top: 1px solid #f3f4f6;
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.2fr repeat(4, 1fr);
+        gap: 40px;
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            h3 {
+                font-size: 0.95rem;
+                font-weight: 700;
+                color: #111827;
+                margin-bottom: 4px;
+            }
+
+            &.brand-col {
+                gap: 28px;
+
+                .footer-logo img {
+                    height: 28px;
+                    width: auto;
+                }
+
+                .social-icons {
+                    display: flex;
+                    gap: 16px;
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        object-fit: contain;
+                        transition: transform 0.2s ease;
+
+                        &:hover {
+                            transform: translateY(-2px);
+                        }
+                    }
+                }
+            }
+
+            .footer-subheading {
+                margin-top: 24px; 
+            }
+
+            .footer-links {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+
+                li a {
+                    font-size: 0.85rem;
+                    color: #4b5563;
+                    text-decoration: none;
+                    transition: color 0.2s ease;
+
+                    &:hover {
+                        color: #0052cc;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        max-width: 1200px;
+        margin: 60px auto 0 auto;
+        padding-top: 20px;
+        display: flex;
+        justify-content: flex-end; 
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+
+            a, span {
+                font-size: 0.85rem;
+                color: #4b5563;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: #0052cc;
+            }
+        }
+    }
+}
