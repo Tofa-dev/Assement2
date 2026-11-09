@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Gilroy';
     src: url('gilroy-bold/Gilroy-Bold.ttf') format('truetype');
-    font-weight: 450;
+    font-weight: 700;
     font-style: normal;
 }
 
@@ -9,13 +9,19 @@
     font-family: 'Gilroy';
     src: url('gilroy-bold/Gilroy-Medium.ttf') format('truetype');
     font-weight: 400;
+    font-style: normal;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Gilroy', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 body {
@@ -27,11 +33,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 145.09px;
+    padding: 12px clamp(20px, 8vw, 145px);
     background-color: white;
-    width: fit-content;
+    width: 100%;
     height: auto;
-    gap: 140px;
+    gap: clamp(16px, 4vw, 140px);
+    flex-wrap: wrap;
 
     .logo {
         display: flex;
@@ -60,8 +67,8 @@ body {
             color: #141414;
             font-size: 1.125rem;
             transition: color 0.2s;
-            width: 72px;
-            height: 22px;
+            width: auto;
+            height: auto;
             font-weight: 400;
             line-height: 100%;
         }
@@ -93,15 +100,15 @@ body {
     font-weight: 400;
     font-size: 18px;
     line-height: 100%;
-    width: 69px;
-    height: 22px;
+    width: auto;
+    height: auto;
 }
 
 .hero-section {
     display: flex;
     justify-content: center;
     text-align: center;
-    padding: 60px 20px 40px 20px; 
+    padding: 60px 20px 40px 20px;
     gap: 8px;
 
     .hero-content {
@@ -112,7 +119,7 @@ body {
 
         h1 {
             font-weight: 700;
-            font-size: 48px;
+            font-size: clamp(32px, 5vw, 48px);
             letter-spacing: 0%;
             line-height: 1.2;
             margin-bottom: 24px;
@@ -169,10 +176,11 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    isolation: isolate; 
+    isolation: isolate;
+    overflow-x: clip; /* stops the absolutely positioned blob from causing sideways scroll */
 
     .hero-card {
-        position: relative;              
+        position: relative;
         background: linear-gradient(90deg, #e8eef8, #fdfcf8);
         border: 0.5px solid #005ae2;
         border-radius: 24px;
@@ -186,24 +194,16 @@ body {
         justify-content: center;
         gap: 16px;
         margin-bottom: 12px;
-
-        &::before {
-            content: "";
-            position: absolute;
-            top: -20px;       
-            background: url('triangle.svg') no-repeat center / 100% 100%;
-            z-index: -1;      
-        }
     }
 }
 
 .hero-blob {
     position: absolute;
-    z-index: -1;                    
-    top: -15px;                     
-    left: 1%;                      
-    width: 280px;                   
-    height: calc(100% + 40px);      
+    z-index: -1;
+    top: -15px;
+    left: 1%;
+    width: 280px;
+    height: calc(100% + 40px);
     pointer-events: none;
 }
 
@@ -243,7 +243,7 @@ body {
 
 .stats-section {
     background-color: #f9fbfd;
-    padding: 40px 140px 60px 140px;
+    padding: 40px clamp(20px, 8vw, 140px) 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -278,15 +278,15 @@ body {
                 font-size: 0.9rem;
                 color: #4b5563;
                 line-height: 1.4;
-                max-width: 140px; 
+                max-width: 140px;
             }
         }
     }
 }
 
 .features-section {
-    background-color: #f8fafc; 
-    padding: 40px 80px;
+    background-color: #f8fafc;
+    padding: 40px clamp(20px, 5vw, 80px);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -313,7 +313,7 @@ body {
     .features-grid {
         flex: 1.5;
         display: grid;
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
         gap: 40px;
 
         .feature-item {
@@ -366,7 +366,7 @@ body {
 
 .pricing-section {
     background-color: #ffffff;
-    padding: 100px 80px;
+    padding: 100px clamp(20px, 5vw, 80px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -374,7 +374,7 @@ body {
 
     .pricing-header {
         max-width: 600px;
-        margin-bottom: 100px; 
+        margin-bottom: 100px;
 
         h2 {
             font-size: 2.3rem;
@@ -399,13 +399,13 @@ body {
         justify-content: center;
         width: 100%;
         max-width: 1100px;
-        margin-bottom: 60px; 
+        margin-bottom: 60px;
 
         .pricing-container-box {
             display: grid;
-            grid-template-columns: 1fr 380px 1fr; 
+            grid-template-columns: 1fr 380px 1fr;
             align-items: center;
-            gap: 40px;                            
+            gap: 40px;
             background: #ffffff;
             border: 1.5px solid #e0e7ff;
             border-radius: 24px;
@@ -457,12 +457,12 @@ body {
 
                     .slash {
                         display: inline-block;
-                        font-size: 2.2rem;      
-                        font-weight: 300;       
+                        font-size: 2.2rem;
+                        font-weight: 300;
                         line-height: 1;
                         margin: 0 2px;
                         vertical-align: middle;
-                        transform: scaleY(1.2); 
+                        transform: scaleY(1.2);
                     }
                 }
 
@@ -492,7 +492,7 @@ body {
                             display: inline-block;
                             width: 18px;
                             height: 18px;
-                            background-image: url('Scissor/check-circle\ \(1\).png'); 
+                            background-image: url('Scissor/check-circle\ \(1\).png');
                             background-repeat: no-repeat;
                             background-position: center;
                             background-size: contain;
@@ -534,7 +534,7 @@ body {
                         color: #e2e8f0;
 
                         &::before {
-                            background-image: url('Scissor/check-circle.png'); 
+                            background-image: url('Scissor/check-circle.png');
                         }
                     }
                 }
@@ -586,8 +586,8 @@ body {
 
 .trim-section {
     position: relative;
-    background-color: #0b1d3a; 
-    background-image: url('Scissor/Desktop\ -\ 11.svg'); 
+    background-color: #0b1d3a;
+    background-image: url('Scissor/Desktop\ -\ 11.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -598,8 +598,9 @@ body {
     overflow: hidden;
 
     .trim-card-wrapper {
-        width: 530px;
-        height: 355px;
+        width: 100%;
+        max-width: 530px;
+        height: auto;
         z-index: 2;
 
         .trim-card {
@@ -652,7 +653,7 @@ body {
                         appearance: none;
                         -webkit-appearance: none;
                         cursor: pointer;
-                        color: #0052cc; 
+                        color: #0052cc;
                         font-weight: 500;
                     }
 
@@ -694,8 +695,8 @@ body {
                     line-height: 1.4;
                     margin-top: 5px;
                     font-weight: 400;
-                    width: 373px;
-                    height: 40px;
+                    width: auto;
+                    height: auto;
                     vertical-align: middle;
 
                     .terms {
@@ -777,11 +778,11 @@ body {
                 font-size: 0.95rem;
                 color: #4b5563;
                 line-height: 1.6;
-                display: none; 
+                display: none;
             }
 
             &.active .faq-answer {
-                display: block; 
+                display: block;
             }
         }
     }
@@ -789,7 +790,7 @@ body {
 
 .cta-banner-section {
     position: relative;
-    background-color: #0b1d3a; 
+    background-color: #0b1d3a;
     background-image: url('Scissor/Desktop\ -\ 11.svg');
     background-size: cover;
     background-position: center;
@@ -829,7 +830,7 @@ body {
     background-image: url('Scissor/FAQs.svg');
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 80px 80px 40px 80px;
+    padding: 80px clamp(20px, 5vw, 80px) 40px;
     position: relative;
     border-top: 1px solid #f3f4f6;
 
@@ -878,7 +879,7 @@ body {
             }
 
             .footer-subheading {
-                margin-top: 24px; 
+                margin-top: 24px;
             }
 
             .footer-links {
@@ -908,7 +909,7 @@ body {
         margin: 60px auto 0 auto;
         padding-top: 20px;
         display: flex;
-        justify-content: flex-end; 
+        justify-content: flex-end;
 
         .footer-bottom-links {
             display: flex;
@@ -927,46 +928,100 @@ body {
         }
     }
 }
+
+/* ---------- Tablet ---------- */
+/* Full selector paths are repeated here so these rules beat the nested base styles. */
+@media (max-width: 1024px) {
+    .stats-section {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .stats-section .stats-grid {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .features-section {
+        flex-direction: column;
+    }
+
+    .features-section .features-intro {
+        max-width: 100%;
+    }
+
+    .pricing-section .pricing-section-wrapper .pricing-container-box {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-section .pricing-section-wrapper .pricing-container-box .pricing-card.professional-card {
+        margin: 0;
+    }
+
+    .footer-section .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ---------- Mobile ---------- */
 @media (max-width: 768px) {
     .navbar {
-        padding: 12px 20px;
-        gap: 20px;
         flex-direction: column;
-        width: 100%;
+        padding: 12px 20px;
+    }
+
+    .navbar .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .navbar .nav-actions {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .hero-section {
         padding: 40px 16px;
     }
 
-    .hero-content h1 {
-        font-size: 32px;
-        line-height: 40px;
+    .hero-section .hero-content h1 br,
+    .hero-section .hero-content p br,
+    .hero-card-wrapper .hero-card .card-text br,
+    .trim-section .trim-card-wrapper .trim-card .trim-form .trim-disclaimer br {
+        display: none;
+    }
+
+    .hero-section .hero-buttons {
+        flex-wrap: wrap;
+    }
+
+    .hero-card-wrapper .hero-card {
+        padding: 28px 20px;
     }
 
     .stats-section {
         padding: 40px 20px;
         flex-direction: column;
-        gap: 32px;
         text-align: center;
+        gap: 32px;
     }
 
-    .stats-grid {
+    .stats-section .stats-grid {
         flex-direction: column;
         gap: 24px;
     }
 
+    .stats-section .stats-grid .stat-item p {
+        max-width: none;
+    }
+
     .features-section {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: 100%;
-        flex-direction: column;
         padding: 40px 20px;
         gap: 40px;
     }
 
-    .features-grid {
+    .features-section .features-grid {
         grid-template-columns: 1fr;
         gap: 24px;
     }
@@ -975,31 +1030,49 @@ body {
         padding: 60px 20px;
     }
 
-    .pricing-container-box {
-        grid-template-columns: 1fr;
+    .pricing-section .pricing-header {
+        margin-bottom: 40px;
+    }
+
+    .pricing-section .pricing-section-wrapper .pricing-container-box {
         padding: 30px 20px;
         gap: 30px;
     }
 
-    .pricing-card.professional-card {
-        margin: 0;
+    .pricing-actions {
+        flex-wrap: wrap;
     }
 
     .trim-section {
         padding: 60px 16px;
     }
 
-    .trim-card-wrapper {
-        width: 100%;
-        height: auto;
+    .trim-section .trim-card-wrapper .trim-card {
+        padding: 30px 20px;
+    }
+
+    .trim-section .trim-card-wrapper .trim-card .trim-form .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-section {
+        padding: 60px 16px;
+    }
+
+    .cta-banner-section .cta-content h2 {
+        font-size: 1.8rem;
     }
 
     .footer-section {
-        padding: 60px 20px 30px 20px;
+        padding: 60px 20px 30px;
     }
 
-    .footer-container {
+    .footer-section .footer-container {
         grid-template-columns: 1fr;
         gap: 32px;
+    }
+
+    .footer-section .footer-bottom {
+        justify-content: center;
     }
 }
