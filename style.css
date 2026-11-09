@@ -927,3 +927,79 @@ body {
         }
     }
 }
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 20px;
+        gap: 20px;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-section {
+        padding: 40px 16px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .stats-section {
+        padding: 40px 20px;
+        flex-direction: column;
+        gap: 32px;
+        text-align: center;
+    }
+
+    .stats-grid {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .features-section {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 40px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .pricing-section {
+        padding: 60px 20px;
+    }
+
+    .pricing-container-box {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+    .pricing-card.professional-card {
+        margin: 0;
+    }
+
+    .trim-section {
+        padding: 60px 16px;
+    }
+
+    .trim-card-wrapper {
+        width: 100%;
+        height: auto;
+    }
+
+    .footer-section {
+        padding: 60px 20px 30px 20px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
